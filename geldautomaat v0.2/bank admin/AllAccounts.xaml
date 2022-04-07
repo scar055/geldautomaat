@@ -1,0 +1,38 @@
+﻿<Window x:Class="bank_admin.AllAccounts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bank_admin"
+        mc:Ignorable="d"
+        Title="AllAccounts" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnBack" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Margin="10,376,0,0" Height="34" Click="btnBack_Click"/>
+        <DataGrid x:Name="dgUserBankAccounts" AutoGenerateColumns="False" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Disabled" Height="243" Margin="0,90,-0.4,0" VerticalAlignment="Top" Width="794" ItemsSource="{Binding Path=LoadDataBinding}"
+                      CanUserResizeRows="False" CanUserAddRows="False" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" Header="id" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=number}" Header="number" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=saldo}" Header="saldo" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=date}" Header="datum" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=blocked}" Header="blocked" Width="*" IsReadOnly="True"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="editUser" Content="Edit" Click="btnEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="btnDelete_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txbSort" HorizontalAlignment="Left" Height="23" Margin="207,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="btnSortAccounts" Content="sorteren" HorizontalAlignment="Left" Margin="414,29,0,0" VerticalAlignment="Top" Width="86" Height="37" Click="btnSortAccounts_Click"/>
+    </Grid>
+</Window>

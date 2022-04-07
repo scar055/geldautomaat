@@ -1,0 +1,54 @@
+﻿<Window x:Class="bank_admin.bankUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bank_admin"
+        mc:Ignorable="d"
+        Title="bankAccounts" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgBankaccounts" AutoGenerateColumns="False" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Disabled" Height="243" Margin="0,90,-0.4,0" VerticalAlignment="Top" Width="794" ItemsSource="{Binding Path=LoadDataBinding}"
+                      CanUserResizeRows="False" CanUserAddRows="False" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" Header="number" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=firstname}" Header="firstname" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=lastname}" Header="lastname" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=email}" Header="email" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=home_adress}" Header="home adress" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=postcode}" Header="postcode" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=woonplaats}" Header="woonaplaats" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=date}" Header="date" Width="*" IsReadOnly="True" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUserEdit" Content="Edit" Click="btnUserEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="btnDelete_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnAddAccount" Content="rekening" Click="btnAddAccount_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnRegister" Content="add new admin" HorizontalAlignment="Left" Margin="642,25,0,0" VerticalAlignment="Top" Height="30" Width="130" Click="register"/>
+        <Button x:Name="btnLogOut" Content="log out" HorizontalAlignment="Left" Margin="683,371,0,0" VerticalAlignment="Top" Width="89" Height="30" Click="btnLogOut_Click"/>
+        <Button x:Name="add_user" Content="add user" HorizontalAlignment="Left" Margin="22,371,0,0" VerticalAlignment="Top" Width="81" Height="30" Click="add_user_Click"/>
+        <TextBox x:Name="txbSearch" HorizontalAlignment="Left" Height="23" Margin="22,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="(Achter) Naam" HorizontalAlignment="Left" Margin="148,32,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnSearchUser" Content="zoeken" HorizontalAlignment="Left" Margin="491,25,0,0" VerticalAlignment="Top" Width="86" Height="30" Click="btnSearchUser_Click"/>
+        <Button x:Name="btnShowAllAccounts" Content="Alle Rekeningen" HorizontalAlignment="Left" Margin="325,371,0,0" VerticalAlignment="Top" Width="103" Height="30" Click="btnShowAllAccounts_Click"/>
+        <TextBox x:Name="txbSearchAdress" HorizontalAlignment="Left" Height="23" Margin="257,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="huis adress" HorizontalAlignment="Left" Margin="401,32,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
